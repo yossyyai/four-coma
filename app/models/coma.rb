@@ -1,2 +1,0 @@
-class Coma < ApplicationRecord
-end
