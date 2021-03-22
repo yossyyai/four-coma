@@ -1,0 +1,2 @@
+class Coma < ApplicationRecord
+end
