@@ -4,5 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :rooms
+  has_many :comas
+  
   validates :name, presence: true, uniqueness: { case_sensitive: true }
+
+
 end

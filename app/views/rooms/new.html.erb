@@ -1,1 +1,4 @@
-<p>新規寄付ページ</p>
+<%= form_with(model: @room, local: true) do |form| %>
+      <%= form.text_field :name, placeholder: "お題" %>
+      <%= form.submit "SEND" %>
+<% end %>

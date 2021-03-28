@@ -1,0 +1,22 @@
+<%= render "shared/header" %>
+
+<div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@room, @coma], local: true) do |form| %>
+        <%= form.file_field :image, placeholder: "画像乗っける", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
+
+<div class="comments">
+  <h4>＜四コマ一覧＞</h4>
+  <% @comas.each do |coma| %>
+    <p>
+      <strong><%= link_to coma.user.name, "/users/#{coma.user_id}" %>：</strong>
+      <%= image_tag coma.image.variant(resize: '500x500'), class: 'coma-image' if coma.image.attached? %>
+    </p>
+  <% end %>
+</div>
